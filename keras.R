@@ -82,7 +82,7 @@ pred_df1 <- pred_df1 %>%
 accuracy <- pred_df1 %>% filter(eval == 1) %>% nrow() / nrow(pred_df1)
 
 accurary_breed <- pred_df1 %>%
-  group_by(class_description) %>%
+  group_by(actual) %>%
   summarise(total = sum(eval),freq = n()) %>%
   mutate(accuracy = total/freq*100) 
 
